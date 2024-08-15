@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "railed",
+	"version": "${version}",
+	"name": "Railed",
+	"description": "Modifications to rails to make them more worthwhile to set up.\nCurrently only changes the recipes but more is planned.",
+	"authors": [
+		"Paul Marmet"
+	],
+	"contact": {
+		"sources": "https://github.com/PaulMarmet/railed"
+	},
+	"license": "ARR",
+	"icon": "assets/railed/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.pm.railed.Railed"
+		],
+		"fabric-datagen": [
+			"net.pm.railed.RailedDataGenerator"
+		]
+	},
+	"mixins": [
+		"railed.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

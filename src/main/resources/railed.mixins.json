@@ -1,0 +1,10 @@
+{
+	"required": true,
+	"package": "net.pm.railed.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
