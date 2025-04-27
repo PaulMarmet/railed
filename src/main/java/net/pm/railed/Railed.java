@@ -2,6 +2,7 @@ package net.pm.railed;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.pm.railed.block.Blocks;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,5 +12,6 @@ public class Railed implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		Blocks.initialize();
 	}
 }

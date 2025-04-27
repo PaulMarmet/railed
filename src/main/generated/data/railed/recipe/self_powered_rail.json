@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:gold_ingot"
+    },
+    "R": {
+      "item": "minecraft:redstone_torch"
+    },
+    "X": {
+      "item": "minecraft:powered_rail"
+    }
+  },
+  "pattern": [
+    "#",
+    "X",
+    "R"
+  ],
+  "result": {
+    "count": 1,
+    "id": "railed:self_powered_rail"
+  }
+}

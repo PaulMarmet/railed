@@ -3,7 +3,7 @@
 	"id": "railed",
 	"version": "${version}",
 	"name": "Railed",
-	"description": "Modifications to rails to make them more worthwhile to set up.\nCurrently only changes the recipes but more is planned.",
+	"description": "Modifications to rails to make them more worthwhile to set up.",
 	"authors": [
 		"Paul Marmet"
 	],
@@ -19,6 +19,9 @@
 		],
 		"fabric-datagen": [
 			"net.pm.railed.RailedDataGenerator"
+		],
+		"client": [
+			"net.pm.railed.RailedClient"
 		]
 	},
 	"mixins": [
