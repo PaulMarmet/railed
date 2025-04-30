@@ -7,6 +7,7 @@ import net.minecraft.data.recipe.RecipeGenerator;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
+import net.pm.railed.Railed;
 import net.pm.railed.block.Blocks;
 
 import java.util.concurrent.CompletableFuture;
@@ -18,7 +19,7 @@ public class RailedRecipes extends FabricRecipeProvider {
 
     @Override
     protected RecipeGenerator getRecipeGenerator(RegistryWrapper.WrapperLookup wrapperLookup, RecipeExporter recipeExporter) {
-        return new RecipeGenerator(wrapperLookup, recipeExporter) {
+        return new net.minecraft.data.recipe.RecipeGenerator(wrapperLookup, recipeExporter) {
             @Override
             public void generate() {
                 createShaped(RecipeCategory.MISC, Blocks.SELF_POWERED_RAIL)
@@ -28,14 +29,14 @@ public class RailedRecipes extends FabricRecipeProvider {
                         .input('#', Items.GOLD_INGOT)
                         .input('X', Items.POWERED_RAIL)
                         .input('R', Items.REDSTONE_TORCH)
-                        .criterion(hasItem(Items.POWERED_RAIL), conditionsFromItem(Items.POWERED_RAIL))
-                        .offerTo(exporter);
+                        .criterion("has_powered_rail", conditionsFromItem(Items.POWERED_RAIL))
+                        .offerTo(recipeExporter);
             }
         };
     }
 
     @Override
     public String getName() {
-        return "RailedRecipeProvider";
+        return Railed.MOD_ID;
     }
 }

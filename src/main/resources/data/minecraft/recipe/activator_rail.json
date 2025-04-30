@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:redstone_torch"
-    },
-    "R": {
-      "item": "minecraft:redstone"
-    },
-    "X": {
-      "item": "minecraft:rail"
-    }
+    "#": "minecraft:redstone_torch",
+    "R": "minecraft:redstone",
+    "X": "minecraft:rail"
   },
   "pattern": [
     "#",

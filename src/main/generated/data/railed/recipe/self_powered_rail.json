@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:gold_ingot"
-    },
-    "R": {
-      "item": "minecraft:redstone_torch"
-    },
-    "X": {
-      "item": "minecraft:powered_rail"
-    }
+    "#": "minecraft:gold_ingot",
+    "R": "minecraft:redstone_torch",
+    "X": "minecraft:powered_rail"
   },
   "pattern": [
     "#",
