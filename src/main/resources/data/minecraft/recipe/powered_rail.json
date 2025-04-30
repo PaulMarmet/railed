@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:copper_ingot"
-    },
-    "X": {
-      "item": "minecraft:rail"
-    },
-    "R": {
-      "item": "minecraft:redstone"
-    }
+    "#": "minecraft:copper_ingot",
+    "X": "minecraft:rail",
+    "R": "minecraft:redstone"
   },
   "pattern": [
     "#",

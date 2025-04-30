@@ -2,11 +2,12 @@ package net.pm.railed.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.data.server.recipe.RecipeExporter;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.data.recipe.RecipeExporter;
+import net.minecraft.data.recipe.RecipeGenerator;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
+import net.pm.railed.Railed;
 import net.pm.railed.block.Blocks;
 
 import java.util.concurrent.CompletableFuture;
@@ -17,15 +18,25 @@ public class RailedRecipes extends FabricRecipeProvider {
     }
 
     @Override
-    public void generate(RecipeExporter exporter) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Blocks.SELF_POWERED_RAIL)
-                .pattern("#")
-                .pattern("X")
-                .pattern("R")
-                .input('#', Items.GOLD_INGOT)
-                .input('X', Items.POWERED_RAIL)
-                .input('R', Items.REDSTONE_TORCH)
-                .criterion(FabricRecipeProvider.hasItem(Items.POWERED_RAIL), FabricRecipeProvider.conditionsFromItem(Items.POWERED_RAIL))
-                .offerTo(exporter);
+    protected RecipeGenerator getRecipeGenerator(RegistryWrapper.WrapperLookup wrapperLookup, RecipeExporter recipeExporter) {
+        return new net.minecraft.data.recipe.RecipeGenerator(wrapperLookup, recipeExporter) {
+            @Override
+            public void generate() {
+                createShaped(RecipeCategory.MISC, Blocks.SELF_POWERED_RAIL)
+                        .pattern("#")
+                        .pattern("X")
+                        .pattern("R")
+                        .input('#', Items.GOLD_INGOT)
+                        .input('X', Items.POWERED_RAIL)
+                        .input('R', Items.REDSTONE_TORCH)
+                        .criterion("has_powered_rail", conditionsFromItem(Items.POWERED_RAIL))
+                        .offerTo(recipeExporter);
+            }
+        };
+    }
+
+    @Override
+    public String getName() {
+        return Railed.MOD_ID;
     }
 }
