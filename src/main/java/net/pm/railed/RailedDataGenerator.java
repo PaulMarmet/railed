@@ -11,6 +11,7 @@ public class RailedDataGenerator implements DataGeneratorEntrypoint {
 
 		pack.addProvider(RailedBlockLoot::new);
 		pack.addProvider(RailedBlockTags::new);
+		pack.addProvider(RailedItemTags::new);
 		pack.addProvider(RailedLang::new);
 		pack.addProvider(RailedModels::new);
 		pack.addProvider(RailedRecipes::new);

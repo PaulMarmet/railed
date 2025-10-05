@@ -4,21 +4,19 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.ItemTags;
 import net.pm.railed.block.Blocks;
 
 import java.util.concurrent.CompletableFuture;
 
-public class RailedBlockTags extends FabricTagProvider.BlockTagProvider{
-    public RailedBlockTags(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+public class RailedItemTags extends FabricTagProvider.ItemTagProvider{
+    public RailedItemTags(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
     }
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-        getTagBuilder(BlockTags.PREVENT_MOB_SPAWNING_INSIDE)
-                .add(Registries.BLOCK.getId(Blocks.SELF_POWERED_RAIL));
-        getTagBuilder(BlockTags.RAILS)
+        getTagBuilder(ItemTags.RAILS)
                 .add(Registries.BLOCK.getId(Blocks.SELF_POWERED_RAIL));
     }
 }
