@@ -7,6 +7,7 @@ import net.minecraft.data.recipe.RecipeGenerator;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
+import net.pm.railed.Railed;
 import net.pm.railed.block.Blocks;
 
 import java.util.concurrent.CompletableFuture;
@@ -36,6 +37,6 @@ public class RailedRecipes extends FabricRecipeProvider {
 
     @Override
     public String getName() {
-        return "RailedRecipeProvider";
+        return Railed.MOD_ID;
     }
 }
