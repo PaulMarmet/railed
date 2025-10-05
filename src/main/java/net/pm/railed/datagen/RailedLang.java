@@ -2,6 +2,7 @@ package net.pm.railed.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
+import net.minecraft.block.Block;
 import net.minecraft.registry.RegistryWrapper;
 import net.pm.railed.block.Blocks;
 
@@ -14,6 +15,11 @@ public class RailedLang extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
-        translationBuilder.add(Blocks.SELF_POWERED_RAIL, "Self-Powered Rail");
+        addBlockWithItem(translationBuilder, Blocks.SELF_POWERED_RAIL, "Self-Powered Rail");
+    }
+
+    public void addBlockWithItem(TranslationBuilder translationBuilder, Block block, String name) {
+        translationBuilder.add(block, name);
+        translationBuilder.add(block.asItem(), name);
     }
 }

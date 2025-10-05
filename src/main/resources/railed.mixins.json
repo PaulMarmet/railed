@@ -3,7 +3,8 @@
   "package": "net.pm.railed.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "AbstractMinecartEntityMixin"
+    "DefaultMinecartControllerMixin",
+    "ExperimentalMinecartControllerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
