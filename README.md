@@ -14,11 +14,12 @@ Powered Rails now look a tad bit different, now being made of copper, not gold. 
 1. Slightly decrease the cost of Powered Rails as copper is easier to obtain than gold
 2. Add a new use for copper
 3. Make space for funkier, fresher, gold rails in a future potential update
+### Self-Powered Rails
+An upgrade to the Powered Rails. Enhanced with a Gold Ingot and a Redstone Torch, these Rails will accelerate your minecarts without the need to be powered first. If you do power them however, they will slow the minecart down to a stop (just like un-powered regular Powered Rails.)
 
 ## Other Notes:
-If I get around to it, I would like to make other changes to rails & minecarts but none of these have been added yet:
-- New, better, Gold Rails
-- Modify the Minecart speed to make rails an actually viable transport method
-- QOL rail related blocks?
-- Maybe More!
-I might do some of these, I might do all of these, I might even do none of these, we'll see.
+If I get around to it, I might eventually make other changes to rails & minecarts but none of these have been added:
+- Modify the Minecart speed to make rails an actually viable transport method (unlikely since Mojang now has an experiment for that.)
+- QOL rail related blocks like an intersection or something?
+
+Who knows if I'll actually get around to doing any of these things though.
