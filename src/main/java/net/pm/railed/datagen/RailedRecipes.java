@@ -1,42 +1,42 @@
 package net.pm.railed.datagen;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.data.recipe.RecipeExporter;
-import net.minecraft.data.recipe.RecipeGenerator;
-import net.minecraft.item.Items;
-import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.world.item.Items;
 import net.pm.railed.Railed;
 import net.pm.railed.block.Blocks;
 
 import java.util.concurrent.CompletableFuture;
 
 public class RailedRecipes extends FabricRecipeProvider {
-    public RailedRecipes(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
-        super(output, registriesFuture);
-    }
-
-    @Override
-    protected RecipeGenerator getRecipeGenerator(RegistryWrapper.WrapperLookup wrapperLookup, RecipeExporter recipeExporter) {
-        return new net.minecraft.data.recipe.RecipeGenerator(wrapperLookup, recipeExporter) {
-            @Override
-            public void generate() {
-                createShaped(RecipeCategory.MISC, Blocks.SELF_POWERED_RAIL)
-                        .pattern("#")
-                        .pattern("X")
-                        .pattern("R")
-                        .input('#', Items.GOLD_INGOT)
-                        .input('X', Items.POWERED_RAIL)
-                        .input('R', Items.REDSTONE_TORCH)
-                        .criterion("has_powered_rail", conditionsFromItem(Items.POWERED_RAIL))
-                        .offerTo(recipeExporter);
-            }
-        };
+    public RailedRecipes(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
+        super(output, registryLookup);
     }
 
     @Override
     public String getName() {
         return Railed.MOD_ID;
+    }
+
+    @Override
+    protected RecipeProvider createRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
+        return new RecipeProvider(provider, recipeOutput) {
+            @Override
+            public void buildRecipes() {
+                shaped(RecipeCategory.MISC, Blocks.SELF_POWERED_RAIL)
+                        .pattern("#")
+                        .pattern("X")
+                        .pattern("R")
+                        .define('#', Items.GOLD_INGOT)
+                        .define('X', Items.POWERED_RAIL)
+                        .define('R', Items.REDSTONE_TORCH)
+                        .unlockedBy(getHasName(Items.POWERED_RAIL), has(Items.POWERED_RAIL))
+                        .save(output);
+            }
+        };
     }
 }

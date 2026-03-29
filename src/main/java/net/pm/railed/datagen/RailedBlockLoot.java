@@ -1,19 +1,19 @@
 package net.pm.railed.datagen;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.minecraft.registry.RegistryWrapper;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootSubProvider;
+import net.minecraft.core.HolderLookup;
 import net.pm.railed.block.Blocks;
 
 import java.util.concurrent.CompletableFuture;
 
-public class RailedBlockLoot extends FabricBlockLootTableProvider {
-    public RailedBlockLoot(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
-        super(dataOutput, registryLookup);
+public class RailedBlockLoot extends FabricBlockLootSubProvider {
+    public RailedBlockLoot(FabricPackOutput dataOutput, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+        super(dataOutput, registriesFuture);
     }
 
     @Override
     public void generate() {
-        addDrop(Blocks.SELF_POWERED_RAIL);
+        add(Blocks.SELF_POWERED_RAIL, createSingleItemTable(Blocks.SELF_POWERED_RAIL));
     }
 }
