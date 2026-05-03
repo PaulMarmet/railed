@@ -41,10 +41,10 @@ public class Blocks {
 
     public static void initialize() {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.REDSTONE_BLOCKS).register(content -> {
-            content.accept(SELF_POWERED_RAIL.asItem());
+            content.insertAfter(net.minecraft.world.level.block.Blocks.POWERED_RAIL, SELF_POWERED_RAIL);
         });
-        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(content -> {
-            content.accept(SELF_POWERED_RAIL.asItem());
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(content -> {
+            content.insertAfter(net.minecraft.world.level.block.Blocks.POWERED_RAIL, SELF_POWERED_RAIL);
         });
     }
 }
