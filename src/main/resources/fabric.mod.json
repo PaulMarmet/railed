@@ -5,10 +5,10 @@
 	"name": "Railed",
 	"description": "Modifications to rails to make them more worthwhile to set up.",
 	"authors": [
-		"Paul Marmet"
+		"AstralOversight"
 	],
 	"contact": {
-		"sources": "https://github.com/PaulMarmet/railed"
+		"sources": "https://github.com/AstralOversight/railed"
 	},
 	"license": "All-Rights-Reserved",
 	"icon": "assets/railed/icon.png",
